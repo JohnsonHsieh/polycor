@@ -47,7 +47,7 @@ polyserial <-
 			warning(paste("inadmissible correlation set to -", maxcor, sep=""))
 		}
 		if (std.err){
-			chisq <- chisq(y, z, result$par[1], result$par[-1], bins=bins)
+			chisq <- chisq(y, z, unique(result$par[1]), unique(result$par[-1]), bins=bins)
 			df <- s*bins - s  - 1
 			result <- list(type="polyserial",
 				rho=result$par[1],
@@ -72,7 +72,7 @@ polyserial <-
 			result$par <- -maxcor
 			warning(paste("inadmissible correlation set to -", maxcor, sep=""))
 		}
-		chisq <- chisq(y, z, rho, cuts, bins=bins)
+		chisq <- chisq(y, z, unique(rho), unique(cuts), bins=bins)
 		df <- s*bins - s  - 1
 		result <- list(type="polyserial",
 			rho=result$par,
